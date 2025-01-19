@@ -10,8 +10,11 @@ blueprint:
         entity:
           domain: sensor
 
+variables:
+  original_entity: !input battery_energy_wh
+
 sensor:
   state: >
-    {{ states('sensor.envoy_202347019745_battery_capacity') | float / 1000 }}
+    {{ states('original_entity') | float / 1000 }}
   unit_of_measurement: kWh
   device_class: energy
