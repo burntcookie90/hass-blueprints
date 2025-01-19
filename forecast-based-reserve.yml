@@ -6,6 +6,10 @@ blueprint:
     energy_production_today:
       name: Forecasted Energy Production for Today
       description: Your forecasted energy production for today. Usually provided by forecast.solar.
+      selector:
+        target:
+          entity:
+            domain: sensor
     battery_capacity:
       name: Home Battery Capacity
       description: The entity for your battery capacity (ex. sensor.envoy_202347019745_battery) in kWh (important!). You can either edit the unit to kWh and change precision or use a tempalate sensor.
