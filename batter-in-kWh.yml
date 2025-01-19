@@ -1,0 +1,17 @@
+blueprint:
+  name: Enphase battery energy in kWh
+  description: Enphase defaults to Wh, this converts to kWh
+  domain: template
+  input:
+    battery_energy_wh:
+      name: Source entity for battery capacity
+      description: (ex. sensor.envoy_2_battery_capacity)
+      selector:
+        entity:
+          domain: sensor
+
+sensor:
+  state: >
+    {{ states('sensor.envoy_202347019745_battery_capacity') | float / 1000 }}
+  unit_of_measurement: kWh
+  device_class: energy
