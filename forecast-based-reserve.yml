@@ -16,16 +16,19 @@ blueprint:
       name: Battery reserve level
       description: The entity controlling your battery reserve (ex. number.enpower_202348002500_reserve_battery_level)
 
-alias: Set battery reserve for production forecast
 triggers:
   - trigger: time
     at: "06:55:00"
+
+variables:
+  batt_cap: !input battery_capacity
 
 actions:
   - if:
       - condition: numeric_state
         entity_id: !input energy_production_today
-        above: !input battery_capacity
+        above: >
+          {{ states('batt_cap') | float / 1000 }}
     then:
       - device_id: !input battery
         domain: number
