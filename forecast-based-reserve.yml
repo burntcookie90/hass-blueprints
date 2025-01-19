@@ -12,7 +12,7 @@ blueprint:
             domain: sensor
     battery_capacity:
       name: Home Battery Capacity
-      description: The entity for your battery capacity (ex. sensor.envoy_202347019745_battery) in kWh (important!). You can either edit the unit to kWh and change precision or use a tempalate sensor.
+      description: The entity for your battery capacity (ex. sensor.envoy_2_battery_capacity) in kWh (important!). You can either edit the unit to kWh and change precision or use a tempalate sensor.
       selector:
         target:
           entity:
@@ -21,8 +21,7 @@ blueprint:
       name: Battery device
       description: Your battery device (ex. Enpower)
       selector:
-        target:
-          device:
+        device:
     reserve_level:
       name: Battery reserve level
       description: The entity controlling your battery reserve (ex. number.enpower_202348002500_reserve_battery_level)
